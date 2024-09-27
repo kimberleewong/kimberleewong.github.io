@@ -3,18 +3,22 @@ project:
   output-dir: docs
 
 website:
-  title: "kimberleewong.github.io"
+  title: "Kimberlee Wong"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+      - href: Resources.qmd
+        text: Resources
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      light: morph
+      dark: darkly
     css: styles.css
-    toc: true
+    toc: false
 
 editor: visual
 

@@ -1,5 +1,26 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Kimberlee Wong",
+    "section": "",
+    "text": "Hello! My name is Kimmy Wong, and I’m a master’s student of Environmental Data Science at the UCSB Bren School of Environmental Science and Management. I’m a recently graduated UCLA alum (2024), and it’s there I found an appreciation for data visualization and GIS mapping as tools to address pressing environmental challenges. I’m excited to enhance my skills in modeling, data analysis, and data visualization and apply these competencies to tackling the environmental issues I have been passionate about since volunteering as an education interpreter at the Aquarium of the Pacific in high school."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Kimberlee Wong",
+    "section": "Education",
+    "text": "Education\nsome text"
+  },
+  {
+    "objectID": "index.html#professional-experience",
+    "href": "index.html#professional-experience",
+    "title": "Kimberlee Wong",
+    "section": "Professional Experience",
+    "text": "Professional Experience\nsome text"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
