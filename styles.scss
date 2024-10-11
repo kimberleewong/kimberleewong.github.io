@@ -1,0 +1,56 @@
+/*-- scss:defaults --*/
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+// Create font variables
+$rubik: "Rubik", sans-serif;
+$afacad-flux: "Afacad Flux", sans-serif;
+
+// Colors
+$light-pink: #DBC2CF;
+$cool-grey: #9FA2B2;
+$cerulean: #3C7A80;
+$ash-blue: #2E4756;
+$navy: #16262E;
+$burgundy: #551B14;
+
+// Quarto Sass Variables
+$body-bg: $cool-grey;
+$navbar-bg: $navy;
+$navbar-fg: $cerulean;
+$navbar-hl: $light-pink;
+
+/*-- scss:rules --*/
+h1, h2, h3, h4, h5, h6 {
+  font-family: $rubik;
+}
+
+h1, h2 {
+  letter-spacing: 3px;
+  font-weight: 680;
+}
+
+.title {
+  color: $burgundy;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.blue-text {
+  text-align: center;
+  color: $cerulean;
+}
+
+.navbar-brand img { 
+  max-height: 55px;
+  width: auto;
+}
+
+
+
+
+
+
