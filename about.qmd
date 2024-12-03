@@ -2,8 +2,18 @@
 title: "About"
 ---
 
-About this site
+## What I do for work
 
-```{r}
-1 + 1
-```
+<p class ="title">some text </p>
+
+## What I do for fun
+
+<p class ="blue-text">*woot woot*<p>
+
+[here is more text]{.blue-text}
+
+::: {.center-text}
+here is line
+
+mroe line
+:::

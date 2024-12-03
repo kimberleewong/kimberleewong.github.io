@@ -1,15 +1,17 @@
 ---
 title: "Kimberlee Wong"
-image: single_fountain.jpg
+image: images/single_fountain.jpg
 about: 
   template: trestles
   image-shape: rectangle
   image-width: 17em
   links: 
     - text: LinkedIn
+      icon: linkedin
       href: https://www.linkedin.com/in/kimberlee-wong/
       target: _blank
     - text: GitHub
+      icon: github
       href: https://github.com/kimberleewong
       target: _blank
     - text: Email

@@ -4,20 +4,25 @@ project:
 
 website:
   title: "Kimberlee Wong"
+  favicon: images/IMG_0267.png
   navbar:
+    logo: images/IMG_0267.png
     left:
       - href: index.qmd
         text: Home
       - about.qmd
       - href: Resources.qmd
         text: Resources
-
+    # - text: CV
+    #.  href: CV/my-cv.pdf (put in root directory)
+  page-footer: 
+   background: light # or `dark`
+   left: Copyright 2024, Kimberlee Wong
+   right: This website is built with Github {{< fa brands github title="the octocat github icon" >}}
 format:
   html:
-    theme: 
-      light: morph
-      dark: darkly
-    css: styles.css
+    theme: styles.scss
+    mainfont: Afacad Flux
     toc: false
 
 editor: visual
