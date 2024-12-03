@@ -1,6 +1,6 @@
 ---
 title: "Kimberlee Wong"
-image: single_fountain.jpg
+image: images/single_fountain.jpg
 about: 
   template: trestles
   image-shape: rectangle
