@@ -10,17 +10,17 @@ $afacad-flux: "Afacad Flux", sans-serif;
 // Colors
 $light-pink: #DBC2CF;
 $cool-grey: #9FA2B2;
-$cerulean: #3C7A80;
-$ash-blue: #2E4756;
+$cerulean: #63afb6;
+$ash-blue: #365575;
 $navy: #16262E;
-$burgundy: #551B14;
+$burgundy: #594157;
 
 // Quarto Sass Variables
 $body-bg: $cool-grey;
 $navbar-bg: $navy;
 $navbar-fg: $cerulean;
 $navbar-hl: $light-pink;
-
+$body-color: $burgundy;
 /*-- scss:rules --*/
 h1, h2, h3, h4, h5, h6 {
   font-family: $rubik;
@@ -32,7 +32,7 @@ h1, h2 {
 }
 
 .title {
-  color: $burgundy;
+  color: $light-pink;
 }
 
 .center-text {
@@ -41,7 +41,7 @@ h1, h2 {
 
 .blue-text {
   text-align: center;
-  color: $cerulean;
+  color: $ash-blue;
 }
 
 .navbar-brand img { 
