@@ -7,20 +7,6 @@
     "text": "Hello! My name is Kimmy Wong, and I’m a master’s student of Environmental Data Science at the UCSB Bren School of Environmental Science and Management. I’m a recently graduated UCLA alum (2024), and it’s there I found an appreciation for data visualization and GIS mapping as tools to address pressing environmental challenges. I’m excited to enhance my skills in modeling, data analysis, and data visualization and apply these competencies to tackling the environmental issues I have been passionate about since volunteering as an education interpreter at the Aquarium of the Pacific in high school."
   },
   {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Kimberlee Wong",
-    "section": "Education",
-    "text": "Education\nsome text"
-  },
-  {
-    "objectID": "index.html#professional-experience",
-    "href": "index.html#professional-experience",
-    "title": "Kimberlee Wong",
-    "section": "Professional Experience",
-    "text": "Professional Experience\nsome text"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -39,7 +25,7 @@
     "href": "posts/thomas_fire_analysis/thomas-fire-blog.html",
     "title": "Analysis of the 2017 Thomas Fire",
     "section": "",
-    "text": "Author: Kimberlee Wong\nLink to Website: https://kimberleewong.github.io/\n\n\n\n\nThe following analysis was done in two-fold. Its purpose is to get a better understanding of the 2017 Thomas Fire that affected Ventura and Santa Barbara Counties. The first part shows the process of producing a graph that shows how the average air quality was affected, and the second part visualizes the region of fire through a false imagery map.\n\n\n\n\nUsing rioxr to import the landsat data and access its attribute\nVisualizing both true and false color images\nCombining two different datasets to make one map\n\n\n\n\nThe landsat data comes from Microsoft Planetary Computer Data Catalogue, and it is a simplified collection of colored bands. It was processed to remove data outside land and coarsen the spatial resolution.\nThe Thomas Fire boundary was created in the previous notebook by filtering a California Fire perimeter file available from the US Government Data Catalogue.\n\n\n\nMicrosoft Planetary Computer Data Catalogue, Landsat collection 2 Level-2 [Data file] Available from: https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2. Access date: November 23, 2024.\nData.gov Data Catalogue, California Fire Perimeters (all) [Data file] Available from: https://catalog.data.gov/dataset/california-fire-perimeters-all-b3436. Access date: November 23, 2024.\n\n\n\n\n\n\nShow code\nimport pandas as pd\nimport geopandas as gpd\nimport os\nimport matplotlib.pyplot as plt\nimport rioxarray as rioxr\nfrom shapely.geometry import box  # To create polygon bounding box\n\npd.set_option(\"display.max.columns\", None) # To see all columns\n\n\n\n\n\n\n# 2017 and 2018 AQI Data # \n\naqi_17 = pd.read_csv('data/daily_aqi_by_county_2017.zip', compression = 'zip')\naqi_18 = pd.read_csv('data/daily_aqi_by_county_2018.zip', compression = 'zip')\n\n# Landsat Data # \n\n# Make a root path\nroot = os.path.join('/',\n                  'courses',\n                  'EDS220',\n                  'data',\n                  'hwk4_landsat_data')\n\n# Make a filepath\nfp = os.path.join(root,\n                 'landsat8-2018-01-26-sb-simplified.nc')\n\n# Use both root and file paths to import the landsat file\nlandsat = rioxr.open_rasterio(fp)\n\n# Thomas Fire Boundary #\nthomas_fire_boundary = gpd.read_file(os.path.join('data', 'thomas_fire_boundary.shp'))"
+    "text": "Author: Kimberlee Wong\nLink to Website\nLink to Repository\n\n\n\n\nThe following analysis was done in two-fold. Its purpose is to get a better understanding of the 2017 Thomas Fire that affected Ventura and Santa Barbara Counties. The first part shows the process of producing a graph that shows how the average air quality was affected, and the second part visualizes the region of fire through a false imagery map.\n\n\n\n\nUse rioxr to import the landsat data and access its attribute\nVisualize both true and false color images\nCombining two different datasets to make one map\n\n\n\n\nThe landsat data comes from Microsoft Planetary Computer Data Catalogue, and it is a simplified collection of colored bands. It was processed to remove data outside land and coarsen the spatial resolution.\nThe Thomas Fire boundary was created in the previous notebook by filtering a California Fire perimeter file available from the US Government Data Catalogue.\n\n\n\nMicrosoft Planetary Computer Data Catalogue, Landsat collection 2 Level-2 [Data file] Available from: https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2. Access date: November, 2024.\nData.gov Data Catalogue, California Fire Perimeters (all) [Data file] Available from: https://catalog.data.gov/dataset/california-fire-perimeters-all-b3436. Access date: November, 2024.\nAQI Data: https://aqs.epa.gov/aqsweb/airdata (Accessed October, 2024)\n\n\n\n\n\n\nShow code\nimport pandas as pd\nimport geopandas as gpd\nimport os\nimport matplotlib.pyplot as plt\nimport rioxarray as rioxr\nfrom shapely.geometry import box  # To create polygon bounding box\n\npd.set_option(\"display.max.columns\", None) # To see all columns\n\n\n\n\n\n\n# 2017 and 2018 AQI Data # \n\naqi_17 = pd.read_csv('data/daily_aqi_by_county_2017.zip', compression = 'zip')\naqi_18 = pd.read_csv('data/daily_aqi_by_county_2018.zip', compression = 'zip')\n\n# Landsat Data # \n\n# Make a root path\nroot = os.path.join('/',\n                  'courses',\n                  'EDS220',\n                  'data',\n                  'hwk4_landsat_data')\n\n# Make a filepath\nfp = os.path.join(root,\n                 'landsat8-2018-01-26-sb-simplified.nc')\n\n# Use both root and file paths to import the landsat file\nlandsat = rioxr.open_rasterio(fp)\n\n# Thomas Fire Boundary #\nthomas_fire_boundary = gpd.read_file(os.path.join('data', 'thomas_fire_boundary.shp'))"
   },
   {
     "objectID": "posts/thomas_fire_analysis/thomas-fire-blog.html#data-cleaning-and-manipulation",
@@ -53,7 +39,7 @@
     "href": "posts/thomas_fire_analysis/thomas-fire-blog.html#visualize-aqi",
     "title": "Analysis of the 2017 Thomas Fire",
     "section": "Visualize AQI",
-    "text": "Visualize AQI\n\n\nShow code\n# Set figure size\nfig, ax = plt.subplots(figsize=(10, 6))\n\nax.plot(aqi_sb.index, aqi_sb.aqi, label='Daily AQI')\nax.plot(aqi_sb.index, aqi_sb.five_day_average, label='Five Day Average AQI')\nax.set_xlabel('Date')\nax.set_ylabel('AQI')\nax.set_title('Daily and Five Day Average AQI Readings of Santa Barbara County from 2017 to 2018')\nax.legend()\n\n\n<matplotlib.legend.Legend at 0x7fed0cae2250>"
+    "text": "Visualize AQI\n\n\nShow code\n# Set figure size\nfig, ax = plt.subplots(figsize=(10, 6))\n\nax.plot(aqi_sb.index, aqi_sb.aqi, label='Daily AQI')\nax.plot(aqi_sb.index, aqi_sb.five_day_average, label='Five Day Average AQI')\nax.set_xlabel('Date')\nax.set_ylabel('AQI')\nax.set_title('Daily and Five Day Average AQI Readings of Santa Barbara County from 2017 to 2018')\nax.legend()\n\n\n<matplotlib.legend.Legend at 0x7f9576624310>"
   },
   {
     "objectID": "posts/thomas_fire_analysis/thomas-fire-blog.html#data-cleaning-and-manipulation-1",
@@ -67,14 +53,14 @@
     "href": "posts/thomas_fire_analysis/thomas-fire-blog.html#true-color-image",
     "title": "Analysis of the 2017 Thomas Fire",
     "section": "True Color Image",
-    "text": "True Color Image\n\n# Visualize the red, green, blue variables\nlandsat[['red', 'green', 'blue']].to_array().plot.imshow()\n\nClipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).\n\n\n<matplotlib.image.AxesImage at 0x7fed0c11b790>\n\n\n\n\n\nThis first attempt at visualizing the landsat data didn’t work quite right because it is showing up in black and white. Let’s change the robust parameter to account for the clouds’ RGB outlier values throwing off the plot.\n\n# Visualize the red, green, blue variables and adjust robust parameter \nlandsat[['red', 'green', 'blue']].to_array().plot.imshow(robust = True)\n\n<matplotlib.image.AxesImage at 0x7fed0bc71bd0>\n\n\n\n\n\nThe first attempt showed up in black and white. By just changing the one parameter of robust, the plot now shows a true color image. The robust parameter essentially changed the colormap range so that the extremes aren’t included. Because the clouds were affecting our first map, turning on robust changes that."
+    "text": "True Color Image\n\n# Visualize the red, green, blue variables\nlandsat[['red', 'green', 'blue']].to_array().plot.imshow()\n\nClipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).\n\n\n<matplotlib.image.AxesImage at 0x7f957680cb10>\n\n\n\n\n\nThis first attempt at visualizing the landsat data didn’t work quite right because it is showing up in black and white. Let’s change the robust parameter to account for the clouds’ RGB outlier values throwing off the plot.\n\n# Visualize the red, green, blue variables and adjust robust parameter \nlandsat[['red', 'green', 'blue']].to_array().plot.imshow(robust = True)\n\n<matplotlib.image.AxesImage at 0x7f957678cd10>\n\n\n\n\n\nThe first attempt showed up in black and white. By just changing the one parameter of robust, the plot now shows a true color image. The robust parameter essentially changed the colormap range so that the extremes aren’t included. Because the clouds were affecting our first map, turning on robust changes that."
   },
   {
     "objectID": "posts/thomas_fire_analysis/thomas-fire-blog.html#false-color-image",
     "href": "posts/thomas_fire_analysis/thomas-fire-blog.html#false-color-image",
     "title": "Analysis of the 2017 Thomas Fire",
     "section": "False Color Image",
-    "text": "False Color Image\nInstead of using the usual RGB (red, green, blue) colors, let’s switch them to make a false color image and better visualize the area that was affected by the fire.\n\n# Visualize the swir22, nir, red variables and keep robust = True\nlandsat[['swir22', 'nir08', 'red']].to_array().plot.imshow(robust = True)\n\n<matplotlib.image.AxesImage at 0x7fed0bca2290>"
+    "text": "False Color Image\nInstead of using the usual RGB (red, green, blue) colors, let’s switch them to make a false color image and better visualize the area that was affected by the fire.\n\n# Visualize the swir22, nir, red variables and keep robust = True\nlandsat[['swir22', 'nir08', 'red']].to_array().plot.imshow(robust = True)\n\n<matplotlib.image.AxesImage at 0x7f9576544410>"
   },
   {
     "objectID": "posts/thomas_fire_analysis/thomas-fire-blog.html#false-color-image-map",
@@ -95,6 +81,6 @@
     "href": "posts.html",
     "title": "My Blog",
     "section": "",
-    "text": "Analysis of the 2017 Thomas Fire\n\n\n\nPython\n\n\nMEDS\n\n\nSpatial-Analysis\n\n\n\nThis project’s goal is to visually explore the region affected by the Thomas Fire across Ventura and Santa Barbara counties in 2017.\n\n\n\nKimmy Wong\n\n\nDec 4, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Analysis of the 2017 Thomas Fire\n\n\n\nPython\n\n\nMEDS\n\n\nSpatial-Analysis\n\n\nQuarto\n\n\n\nThis project’s goal is to visually explore the region affected by the Thomas Fire across Ventura and Santa Barbara counties in 2017.\n\n\n\nKimmy Wong\n\n\nDec 4, 2024\n\n\n\n\n\n\n\n\nNo matching items"
   }
 ]

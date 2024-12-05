@@ -9,7 +9,9 @@ author:
     affiliation-url: https://bren.ucsb.edu/masters-programs/master-environmental-data-science
     
 date: 2024-12-04
-categories: [Python, MEDS, Spatial-Analysis]
+categories: [Python, MEDS, Spatial-Analysis, Quarto]
+citation: 
+  url: https://kimberleewong.github.io/posts/thomas_fire_analysis/thomas-fire-blog.html
 toc: true
 image: thomas_fire.jpeg
 draft: false # prevents post from showing up until you are ready 
@@ -19,7 +21,9 @@ draft: false # prevents post from showing up until you are ready
 
 Author: Kimberlee Wong
 
-Link to Website: https://kimberleewong.github.io/
+Link to [Website]( https://kimberleewong.github.io/)
+
+Link to [Repository](https://github.com/kimberleewong/thomas_fire_analysis)
 
 ## About
 
@@ -29,8 +33,8 @@ The following analysis was done in two-fold. Its purpose is to get a better unde
 
 ### Highlights
 
--   Using rioxr to import the landsat data and access its attribute
--   Visualizing both true and false color images
+-   Use `rioxr` to import the landsat data and access its attribute
+-   Visualize both true and false color images
 -   Combining two different datasets to make one map
 
 ### About the Data
@@ -41,9 +45,11 @@ The Thomas Fire boundary was created in the previous notebook by filtering a Cal
 
 ### References
 
-Microsoft Planetary Computer Data Catalogue, Landsat collection 2 Level-2 \[Data file\] Available from: https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2. Access date: November 23, 2024.
+Microsoft Planetary Computer Data Catalogue, Landsat collection 2 Level-2 \[Data file\] Available from: https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2. Access date: November, 2024.
 
-Data.gov Data Catalogue, California Fire Perimeters (all) \[Data file\] Available from: https://catalog.data.gov/dataset/california-fire-perimeters-all-b3436. Access date: November 23, 2024.
+Data.gov Data Catalogue, California Fire Perimeters (all) \[Data file\] Available from: https://catalog.data.gov/dataset/california-fire-perimeters-all-b3436. Access date: November, 2024.
+
+AQI Data: https://aqs.epa.gov/aqsweb/airdata (Accessed October, 2024)
 
 ## Import Libraries
 
