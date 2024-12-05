@@ -280,15 +280,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="highlights" class="level3">
 <h3 class="anchored" data-anchor-id="highlights">Highlights</h3>
 <ul>
-<li>Use <code>rioxr</code> to import the landsat data and access its attribute</li>
-<li>Visualize both true and false color images</li>
-<li>Combining two different datasets to make one map</li>
+<li><strong>Clean and Manipulate</strong>: Clean column names and remove unnecessary column names for ease.</li>
+<li><strong>Visualize</strong>: Produce both true and false image color image maps. Produce a graph showing the average air quality index before, through, and after the Thomas Fire.</li>
+<li><strong>Geospatial Analysis</strong>: Use <code>rioxr</code> to import the landsat data and access its attributes. Use <code>squeeze</code> and <code>drop.vars</code> to remove unnecessary bands and coordinates.</li>
 </ul>
 </section>
 <section id="about-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="about-the-data">About the Data</h3>
 <p>The landsat data comes from Microsoft Planetary Computer Data Catalogue, and it is a simplified collection of colored bands. It was processed to remove data outside land and coarsen the spatial resolution.</p>
-<p>The Thomas Fire boundary was created in the previous notebook by filtering a California Fire perimeter file available from the US Government Data Catalogue.</p>
+<p>The Thomas Fire boundary was created by filtering a California Fire perimeter file available from the US Government Data Catalogue.</p>
+<p>The AQI (Air Quality Index) data was created by the US EPA (Environmental Protection Agency), and was filtered down to Santa Barbara County.</p>
 </section>
 <section id="references" class="level3">
 <h3 class="anchored" data-anchor-id="references">References</h3>
@@ -387,7 +388,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>ax.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>&lt;matplotlib.legend.Legend at 0x7f9576624310&gt;</code></pre>
+<pre><code>&lt;matplotlib.legend.Legend at 0x7ff004fe6890&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="thomas-fire-blog_files/figure-html/cell-5-output-2.png" width="816" height="523"></p>
@@ -428,7 +429,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7f957680cb10&gt;</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7ff0036e4910&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="thomas-fire-blog_files/figure-html/cell-7-output-3.png" width="633" height="464"></p>
@@ -439,7 +440,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the red, green, blue variables and adjust robust parameter </span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>landsat[[<span class="st">'red'</span>, <span class="st">'green'</span>, <span class="st">'blue'</span>]].to_array().plot.imshow(robust <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7f957678cd10&gt;</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7ff00377b910&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="thomas-fire-blog_files/figure-html/cell-8-output-2.png" width="633" height="464"></p>
@@ -454,7 +455,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the swir22, nir, red variables and keep robust = True</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>landsat[[<span class="st">'swir22'</span>, <span class="st">'nir08'</span>, <span class="st">'red'</span>]].to_array().plot.imshow(robust <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7f9576544410&gt;</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7ff003653910&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="thomas-fire-blog_files/figure-html/cell-9-output-2.png" width="633" height="464"></p>
