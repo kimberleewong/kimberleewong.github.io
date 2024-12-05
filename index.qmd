@@ -9,17 +9,17 @@ about:
     - text: LinkedIn
       icon: linkedin
       href: https://www.linkedin.com/in/kimberlee-wong/
-      target: _blank
+#      target: _blank
     - text: GitHub
       icon: github
       href: https://github.com/kimberleewong
-      target: _blank
+#      target: _blank
     - text: Email
       href: mailto:kjwong@ucsb.edu
-      target: _blank
+#      target: _blank
 ---
 
-Hello! My name is Kimmy Wong, and I'm a master’s student of Environmental Data Science at the UCSB Bren School of Environmental Science and Management. I'm a recently graduated UCLA alum (2024), and it's there I found an appreciation for data visualization and GIS mapping as tools to address pressing environmental challenges. I'm excited to enhance my skills in modeling, data analysis, and data visualization and apply these competencies to tackling the environmental issues I have been passionate about since volunteering as an education interpreter at the Aquarium of the Pacific in high school.
+Hello! My name is Kimmy Wong, and I'm a master's student of Environmental Data Science at the UCSB Bren School of Environmental Science and Management. I'm a recently graduated UCLA alum (2024), and it's there I found an appreciation for data visualization and GIS mapping as tools to address pressing environmental challenges. I'm excited to enhance my skills in modeling, data analysis, and data visualization and apply these competencies to tackling the environmental issues I have been passionate about since volunteering as an education interpreter at the Aquarium of the Pacific in high school.
 
 ## Education
 

@@ -13,6 +13,7 @@ website:
       - about.qmd
       - href: Resources.qmd
         text: Resources
+      - posts.qmd
     # - text: CV
     #.  href: CV/my-cv.pdf (put in root directory)
   page-footer: 
