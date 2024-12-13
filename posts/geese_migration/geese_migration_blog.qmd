@@ -10,7 +10,7 @@ author:
 date: 2024-12-13
 categories: [r, MEDS, Statistics, Quarto]
 citation: 
-  url: https://kimberleewong.github.io/posts/thomas_fire_analysis/thomas-fire-blog.html
+  url: https://kimberleewong.github.io/posts/geese_migration/geese_migration_blog.html
 toc: true
 image: geese_migration.avif
 draft: false # prevents post from showing up until you are ready 
