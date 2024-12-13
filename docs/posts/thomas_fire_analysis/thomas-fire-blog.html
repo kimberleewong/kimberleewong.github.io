@@ -236,7 +236,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose</a></li>
   <li><a href="#highlights" id="toc-highlights" class="nav-link" data-scroll-target="#highlights">Highlights</a></li>
   <li><a href="#about-the-data" id="toc-about-the-data" class="nav-link" data-scroll-target="#about-the-data">About the Data</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   <li><a href="#import-libraries" id="toc-import-libraries" class="nav-link" data-scroll-target="#import-libraries">Import Libraries</a></li>
   <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Load Data</a></li>
@@ -255,6 +254,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#crs-manipulation" id="toc-crs-manipulation" class="nav-link" data-scroll-target="#crs-manipulation">CRS Manipulation</a></li>
   <li><a href="#plot-map" id="toc-plot-map" class="nav-link" data-scroll-target="#plot-map">Plot Map</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -266,6 +266,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="hill-pic.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">An image of firefighters battling the fire as it encroaches on Carpinteria on December 10. Credits: Mike Eliason/Santa Barbara County Fire Department via AP</figcaption><p></p>
+</figure>
+</div>
 <section id="thomas-fire-analysis" class="level1">
 <h1>Thomas Fire Analysis</h1>
 <p>Author: Kimberlee Wong</p>
@@ -275,27 +281,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="about">About</h2>
 <section id="purpose" class="level3">
 <h3 class="anchored" data-anchor-id="purpose">Purpose</h3>
-<p>The following analysis was done in two-fold. Its purpose is to get a better understanding of the 2017 Thomas Fire that affected Ventura and Santa Barbara Counties. The first part shows the process of producing a graph that shows how the average air quality was affected, and the second part visualizes the region of fire through a false imagery map.</p>
+<p>In December of 2017, multiple wildfires ignited in Southern California, and was dubbed the Thomas Fire. It took months for it to be considered completely out, and at the time, it became the seventh most destructive fire in California history. The following analysis was done in two-fold. Its purpose is to get a better understanding of the 2017 Thomas Fire effects. The first part shows the process of producing a graph that shows how the average air quality was affected, and the second part visualizes the region of fire through a false imagery map.</p>
 </section>
 <section id="highlights" class="level3">
 <h3 class="anchored" data-anchor-id="highlights">Highlights</h3>
 <ul>
 <li><strong>Clean and Manipulate</strong>: Clean column names and remove unnecessary column names for ease.</li>
 <li><strong>Visualize</strong>: Produce both true and false image color image maps. Produce a graph showing the average air quality index before, through, and after the Thomas Fire.</li>
-<li><strong>Geospatial Analysis</strong>: Use <code>rioxr</code> to import the landsat data and access its attributes. Use <code>squeeze</code> and <code>drop.vars</code> to remove unnecessary bands and coordinates.</li>
+<li><strong>Geospatial Analysis</strong>: Use <code>rioxr</code> to import the Landsat data and access its attributes. Use <code>squeeze</code> and <code>drop.vars</code> to remove unnecessary bands and coordinates.</li>
 </ul>
 </section>
 <section id="about-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="about-the-data">About the Data</h3>
-<p>The landsat data comes from Microsoft Planetary Computer Data Catalogue, and it is a simplified collection of colored bands. It was processed to remove data outside land and coarsen the spatial resolution.</p>
+<p>The Landsat data comes from Microsoft Planetary Computer Data Catalogue, and it is a simplified collection of colored bands. It was processed to remove data outside land and coarsen the spatial resolution.</p>
 <p>The Thomas Fire boundary was created by filtering a California Fire perimeter file available from the US Government Data Catalogue.</p>
 <p>The AQI (Air Quality Index) data was created by the US EPA (Environmental Protection Agency), and was filtered down to Santa Barbara County.</p>
-</section>
-<section id="references" class="level3">
-<h3 class="anchored" data-anchor-id="references">References</h3>
-<p>Microsoft Planetary Computer Data Catalogue, Landsat collection 2 Level-2 [Data file] Available from: https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2. Access date: November, 2024.</p>
-<p>Data.gov Data Catalogue, California Fire Perimeters (all) [Data file] Available from: https://catalog.data.gov/dataset/california-fire-perimeters-all-b3436. Access date: November, 2024.</p>
-<p>AQI Data: https://aqs.epa.gov/aqsweb/airdata (Accessed October, 2024)</p>
 </section>
 </section>
 <section id="import-libraries" class="level2">
@@ -335,7 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>fp <span class="op">=</span> os.path.join(root,</span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'landsat8-2018-01-26-sb-simplified.nc'</span>)</span>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Use both root and file paths to import the landsat file</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Use both root and file paths to import the Landsat file</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>landsat <span class="op">=</span> rioxr.open_rasterio(fp)</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Thomas Fire Boundary #</span></span>
@@ -348,8 +348,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="data-cleaning-and-manipulation" class="level2">
 <h2 class="anchored" data-anchor-id="data-cleaning-and-manipulation">Data Cleaning and Manipulation</h2>
 <div class="cell" data-tags="[]" data-execution_count="3">
-<details>
-<summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine 2017 and 2018 data into one dataframe</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>aqi <span class="op">=</span> pd.concat([aqi_17, aqi_18])</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -369,7 +367,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate AQI rolling average over 5 days</span></span>
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>aqi_sb[<span class="st">'five_day_average'</span>] <span class="op">=</span> aqi_sb.rolling(<span class="st">'5D'</span>).aqi.mean()   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="visualize-aqi" class="level2">
@@ -388,7 +385,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>ax.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>&lt;matplotlib.legend.Legend at 0x7ff004fe6890&gt;</code></pre>
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f6c3824d210&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="thomas-fire-blog_files/figure-html/cell-5-output-2.png" width="816" height="523"></p>
@@ -401,8 +398,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="data-cleaning-and-manipulation-1" class="level2">
 <h2 class="anchored" data-anchor-id="data-cleaning-and-manipulation-1">Data Cleaning and Manipulation</h2>
 <div class="cell" data-execution_count="5">
-<details>
-<summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove length 1 dimensions (band)</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>landsat <span class="op">=</span> landsat.squeeze()</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -411,7 +406,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check that it worked</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(landsat.dims, landsat.coords)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>FrozenMappingWarningOnValuesAccess({'x': 870, 'y': 731}) Coordinates:
   * x            (x) float64 7kB 1.213e+05 1.216e+05 ... 3.557e+05 3.559e+05
@@ -429,18 +423,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7ff0036e4910&gt;</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6c38557010&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="thomas-fire-blog_files/figure-html/cell-7-output-3.png" width="633" height="464"></p>
 </div>
 </div>
-<p>This first attempt at visualizing the landsat data didn’t work quite right because it is showing up in black and white. Let’s change the robust parameter to account for the clouds’ RGB outlier values throwing off the plot.</p>
+<p>This first attempt at visualizing the Landsat data didn’t work quite right because it is showing up in black and white. Let’s change the robust parameter to account for the clouds’ RGB outlier values throwing off the plot.</p>
 <div class="cell" data-tags="[]" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the red, green, blue variables and adjust robust parameter </span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>landsat[[<span class="st">'red'</span>, <span class="st">'green'</span>, <span class="st">'blue'</span>]].to_array().plot.imshow(robust <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7ff00377b910&gt;</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6c3829bfd0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="thomas-fire-blog_files/figure-html/cell-8-output-2.png" width="633" height="464"></p>
@@ -450,12 +444,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="false-color-image" class="level2">
 <h2 class="anchored" data-anchor-id="false-color-image">False Color Image</h2>
-<p>Instead of using the usual RGB (red, green, blue) colors, let’s switch them to make a false color image and better visualize the area that was affected by the fire.</p>
+<p>Instead of using the usual RGB (red, green, blue) colors, let’s switch them to make a false color image and better visualize the area that was affected by the fire. In our specific case, we will be using short-wave infrared(swir22) instead of red, near-infrared(nir08) instead of green, and red instead of blue. We must input the exchange in the order of RGB in order to get the desired effect.</p>
 <div class="cell" data-tags="[]" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the swir22, nir, red variables and keep robust = True</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>landsat[[<span class="st">'swir22'</span>, <span class="st">'nir08'</span>, <span class="st">'red'</span>]].to_array().plot.imshow(robust <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7ff003653910&gt;</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6c380c9550&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="thomas-fire-blog_files/figure-html/cell-9-output-2.png" width="633" height="464"></p>
@@ -469,19 +463,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="crs-manipulation">CRS Manipulation</h3>
 <p>Because we’re combining two geodata files, we must ensure the CRSs match.</p>
 <div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View each CRS (add code fold here)</span></span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View each CRS</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Thomas Fire CRS: '</span>, thomas_fire_boundary.crs)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'landsat CRS: '</span>, landsat.rio.crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Landsat CRS: '</span>, landsat.rio.crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Thomas Fire CRS:  EPSG:3857
-landsat CRS:  EPSG:32611</code></pre>
+Landsat CRS:  EPSG:32611</code></pre>
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change Thomas Fire boundary to match the landsat crs </span></span>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change Thomas Fire boundary to match the Landsat CRS </span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>thomas_fire_boundary <span class="op">=</span> thomas_fire_boundary.to_crs(landsat.rio.crs)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a check to make sure it worked (if it didn't an error would produce)</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a check to make sure it worked </span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> thomas_fire_boundary.crs <span class="op">==</span> landsat.rio.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -516,6 +510,12 @@ landsat CRS:  EPSG:32611</code></pre>
 </div>
 </div>
 <p>Figure Description: This is a map of Santa Barbara County in the year 2017. It features a layer on top of it that shows the border of the Thomas Fire. This map uses false color imagery (occurs when you replace the original RGB colors with other ones of your choosing. In this instance, instead of red we used short-wave infrared(swir22), instead of green we used near-infrared(nir08), and instead of blue we used red. By doing this, the map clearly shows where the Thomas Fire is. When comparing it to the true color image, you cannot really tell that the region of the Thomas Fire was different. The included border also helps to distinct the fire from the rest of the county.</p>
+</section>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<p>Microsoft Planetary Computer Data Catalogue, Landsat collection 2 Level-2 [Data file] Available from: https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2. Access date: November, 2024.</p>
+<p>Data.gov Data Catalogue, California Fire Perimeters (all) [Data file] Available from: https://catalog.data.gov/dataset/california-fire-perimeters-all-b3436. Access date: November, 2024.</p>
+<p>AQI Data: https://aqs.epa.gov/aqsweb/airdata (Accessed October, 2024)</p>
 
 
 </section>
