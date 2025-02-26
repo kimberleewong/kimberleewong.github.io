@@ -4,15 +4,23 @@ title: "About"
 
 ## What I do for work
 
-<p class ="title">some text </p>
+<p class="title">
+
+some text
+
+</p>
 
 ## What I do for fun
 
-<p class ="blue-text">*woot woot*<p>
+<p class ="blue-text">
+
+When I'm not in class or practicing my code, I strive to use my free time to stretch out my artistic bones. 
+
+</p>
 
 [here is more text]{.blue-text}
 
-::: {.center-text}
+::: center-text
 here is line
 
 mroe line
