@@ -2,17 +2,25 @@
 title: "About"
 ---
 
-## What I do for work
+## Education and Work!
 
-<p class ="title">some text </p>
+<p class="title">
 
-## What I do for fun
+some text
 
-<p class ="blue-text">*woot woot*<p>
+</p>
+
+## Hobbies and Arts!
+
+<p class ="blue-text">
+
+*woot woot*
+
+<p>
 
 [here is more text]{.blue-text}
 
-::: {.center-text}
+::: center-text
 here is line
 
 mroe line
