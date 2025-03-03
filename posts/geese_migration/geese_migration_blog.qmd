@@ -8,7 +8,7 @@ author:
     affiliation-url: https://bren.ucsb.edu/masters-programs/master-environmental-data-science
     
 date: 2024-12-13
-categories: [r, MEDS, Statistics, Quarto]
+categories: [R, MEDS, Statistics, Quarto]
 citation: 
   url: https://kimberleewong.github.io/posts/geese_migration/geese_migration_blog.html
 toc: true
@@ -336,6 +336,6 @@ Acknowledging these limitations is essential for interpreting the results and fr
 ## References
 
 | Data:                | Citation:                                                                                                                                                                                                                                                                                                                                         |
-|------------------|------------------------------------------------------|
+|-------------------|-----------------------------------------------------|
 | Geese Migration Data | Kölzsch, A., Müskens, G. J. D. M., Kruckenberg, H., Glazov, P., Weinzierl, R., Nolet, B. A., & Wikelski, M. (2016). Towards a new understanding of migration timing: slower spring than autumn migration in geese reflects different decision rules for stopover use and departure. Oikos, 125(10), 1496--1507. https://doi.org/10.1111/oik.03121 |
 | Precipitation Data   | Climate Data Online (CDO), National Climatic Data Center (NCDC). (n.d.). Www.ncei.noaa.gov. https://www.ncei.noaa.gov/cdo-web/search                                                                                                                                                                                                              |

@@ -41,9 +41,9 @@ library(kableExtra)
 #| output: false
 #| quiet: true
  
-ejscreen <- st_read(here("data", "ejscreen","EJSCREEN_2023_BG_StatePct_with_AS_CNMI_GU_VI.gdb"))
+ejscreen <- st_read(here("posts","environmental_redlining", "data", "ejscreen","EJSCREEN_2023_BG_StatePct_with_AS_CNMI_GU_VI.gdb"))
 
-holc <- st_read(here("data", "mapping-inequality", "mapping-inequality-los-angeles.json")) %>% 
+holc <- st_read(here("posts","environmental_redlining","data", "mapping-inequality", "mapping-inequality-los-angeles.json")) %>% 
   filter(st_is_valid(.))
 ```
 
@@ -230,7 +230,7 @@ After reviewing the results of the map, table, and three figures, there are a fe
 #| output: false
 #| quiet: true
 
-birds <- st_read(here("data", "gbif-birds-LA","gbif-birds-LA.shp"))
+birds <- st_read(here("posts","environmental_redlining","data", "gbif-birds-LA","gbif-birds-LA.shp"))
 ```
 
 ## Summarize Data
