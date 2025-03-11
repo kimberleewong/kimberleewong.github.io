@@ -6,22 +6,14 @@ title: "About"
 
 <p class="title">
 
-some text
+### UC Santa Barbara
+I am currently a student at the UC Santa Barbara Bren School of Environmental Science and Management. I am pursuing my Master's of Environmental Data Science. With the fast paced nature of this program, I have learned so much in such a short time span. I've enjoyed furthering my skills in R, Python, Java, and SQL.
+
+### UC Los Angeles
+I was an Environmental Science student in undergrad at UC Los Angeles, and it was during one of my required classes, coding for environmental science, that I found a great appreciation for data science and the value of programs like R.
 
 </p>
 
 ## Hobbies and Arts!
 
-<p class ="blue-text">
 
-*woot woot*
-
-<p>
-
-[here is more text]{.blue-text}
-
-::: center-text
-here is line
-
-mroe line
-:::
