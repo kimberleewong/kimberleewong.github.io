@@ -37,7 +37,7 @@ Additionally, this study acknowledges some challenges, such as gaps in data acro
 Based on previous research that describes how environmental factors can influence migration patterns, I believe that there will be a change in geese migration over time. Below shows a table of my two hypotheses, and I will be attempting to determine whether or not they can be rejected.
 
 | Hypothesis: There is a change in geese migration distance over time.       |
-|------------------------------------------------------------------------|
+|----------------------------------------------------------------------------|
 | Null hypothesis: There is no change in geese migration distance over time. |
 
 ## Analysis Plan
@@ -336,6 +336,6 @@ Acknowledging these limitations is essential for interpreting the results and fr
 ## References
 
 | Data:                | Citation:                                                                                                                                                                                                                                                                                                                                         |
-|-------------------|-----------------------------------------------------|
+|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Geese Migration Data | Kölzsch, A., Müskens, G. J. D. M., Kruckenberg, H., Glazov, P., Weinzierl, R., Nolet, B. A., & Wikelski, M. (2016). Towards a new understanding of migration timing: slower spring than autumn migration in geese reflects different decision rules for stopover use and departure. Oikos, 125(10), 1496--1507. https://doi.org/10.1111/oik.03121 |
 | Precipitation Data   | Climate Data Online (CDO), National Climatic Data Center (NCDC). (n.d.). Www.ncei.noaa.gov. https://www.ncei.noaa.gov/cdo-web/search                                                                                                                                                                                                              |
