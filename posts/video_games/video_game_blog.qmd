@@ -1,0 +1,190 @@
+---
+title: "Pixels and Preferences: The Ultimate Gamer's Landscape "
+description: "Exploring different aspects of video games, their popularity, and ratings."
+author:
+  - name: Kimmy Wong
+    url: https://kimberleewong.github.io/
+    affiliation: MEDS 
+    affiliation-url: https://bren.ucsb.edu/masters-programs/master-environmental-data-science
+date: 2025-14-03
+execute: 
+  warning: false
+  message: false
+categories: [R, MEDS, Data Visualization, Quarto]
+citation: 
+  url: https://kimberleewong.github.io/posts/environmental_redlining/environmental_redlining_blog.html
+toc: true
+image: game.jpg
+draft: false
+---
+
+### Introduction
+
+My favorite hobby is video games. Growing up with three brothers, I spent much of my time watching them play video games. As I discovered I got older, I finally started playing them for myself. So when given the opportunity to make a fun, creative infographic, I wanted to do an homage to the entertainment that connected me with my brothers, offered me an escape, and allowed me to work for one of my favorite youtube channels.
+
+### Data
+I found the data on Kaggle. The creator aggregated the data from a site called Backloggd. I had never heard of it before, but it is the video game equivalent of Good Reads (books) orLetterboxd (movies). 
+
+### Final Infographic
+```{r}
+#| eval: true
+#| echo: false
+#| fig-align: "center"
+#| out-width: "100%"
+knitr::include_graphics("infographic.png")
+```
+
+
+## Code 
+
+### Load Libraries
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+library(here)
+library(tidyverse)
+library(janitor)
+library(scales)
+library(treemap)
+```
+
+### Read in Data
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+games <- read_csv(here("posts", "video_games", "data", "games.csv")) %>% # keep only one observation of each game name
+  distinct(name, .keep_all = TRUE)
+
+genres <- read_csv(here("posts", "video_games","data", "genres.csv"))
+scores <- read_csv(here("posts", "video_games","data", "scores.csv"))
+platforms <- read_csv(here("posts", "video_games","data", "platforms.csv"))
+developers <- read_csv(here("posts", "video_games","data", "developers.csv"))
+
+```
+
+### Radial Bar Chart Data Wrangling
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+games_small <- games %>% 
+  select(c("id", "rating", "name"))
+
+genres_ratings <- left_join(games_small, genres, by = "id")
+
+adventure <- genres_ratings %>% 
+  filter(genre == "Adventure")
+
+genre_avg_scores <- genres_ratings %>%
+  group_by(genre) %>% 
+  summarise(avg_rating = mean(rating, na.rm = TRUE),
+            game_count = n())%>% 
+  arrange(desc(avg_rating)) %>%
+  mutate(
+    genre = factor(genre, levels = genre)) %>% # Preserve order for plotting
+  filter(genre != "NA") 
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+# Radial bar chart with bar length for avg_rating and color intensity for game count
+ggplot(genre_avg_scores, aes(x = genre, y = avg_rating, fill = game_count)) +
+  geom_bar(stat = "identity", width = 0.6) +   # Adjust bar width
+  coord_polar(start = 0) +                    # Polar coordinates
+  scale_fill_gradient(low = "lightblue", high = "darkblue") +  # Gradient for game count
+  labs(
+    title = NULL,
+    x = NULL, 
+    y = NULL,
+    fill = "Game Count"  # Update legend for clarity
+  ) +
+  scale_x_discrete(labels = label_wrap(10)) + # Wrap genre labels
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(size = 10, face = "bold", hjust = 0.1), # Rotate labels
+    axis.text.y = element_blank(),  # Remove radial grid text
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    panel.grid.major = element_blank(),
+    plot.margin = margin(b = 20, t = 20)
+  )
+```
+
+### Time plot
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+# Join developers
+developer_games <- left_join(developers, games, by = "id") %>% 
+  na.omit()
+
+# Aggregate data by Developer and calculate total plays
+top_developers <- developer_games %>%
+  group_by(developer) %>%
+  summarise(total_plays = sum(plays, na.rm = TRUE)) %>%
+  arrange(desc(total_plays)) %>%
+  slice(1:5)  # Select the top 5 developers
+
+# View the result
+print(top_developers)
+
+developer_games <- developer_games %>% 
+  filter(developer %in% c("Nintendo", "Electronic Arts", "Capcom", "Square Enix", "Sony Computer Entertainmen"))
+
+developer_top_games <- developer_games %>%
+  group_by(developer) %>%
+  slice_max(order_by = plays, n = 10) %>%
+  ungroup()  # Ungroup after filtering
+
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+ggplot(developer_top_games, aes(x = date, y = plays, color = developer))  +
+  geom_line() +
+  geom_point() +
+  theme_minimal()
+
+```
+### Treemap Plot
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+platform_count <- platforms %>% 
+  group_by(platform) %>% 
+  summarize(count = n(), na.rm = TRUE) %>%
+  arrange(desc(count)) %>%
+  slice(1:15)
+
+```
+
+#### Visualize
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+treemap(platform_count,
+        index = "platform",
+        vSize = "count", 
+        type = "index",  # Use index-based coloring 
+        border.col = "black",  # Thin white borders
+        #fontsize.labels = c(70, 20),  # Adjust font size for labels
+        fontcolor.labels = "white",  # Make labels visible
+        align.labels=c("center", "center"),
+        inflate.labels = TRUE,  # Force labels to fit
+        format.legend = list(scientific = FALSE, big.mark = " "))
+```
+
+
