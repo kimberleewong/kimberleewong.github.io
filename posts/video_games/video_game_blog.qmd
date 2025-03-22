@@ -18,14 +18,60 @@ image: game.jpg
 draft: false
 ---
 
-### Introduction
+## Introduction and Motivation
 
-My favorite hobby is video games. Growing up with three brothers, I spent much of my time watching them play video games. As I discovered I got older, I finally started playing them for myself. So when given the opportunity to make a fun, creative infographic, I wanted to do an homage to the entertainment that connected me with my brothers, offered me an escape, and allowed me to work for one of my favorite youtube channels.
+My favorite hobby is playing or watching video games. Growing up with three brothers, I spent much of my time watching them play video games. As I discovered I got older, I finally started playing them for myself. So when given the opportunity to make a fun, creative infographic, I wanted pay an homage to the entertainment that connected me with my brothers, offered me an escape, and allowed me to work for one of my favorite YouTube channels.
 
-### Data
-I found the data on Kaggle. The creator aggregated the data from a site called Backloggd. I had never heard of it before, but it is the video game equivalent of Good Reads (books) orLetterboxd (movies). 
+## Goal and Questions
+My goal with this infographic is to visualize the information that I gathered from the very expansive data set I found. I wanted make the graphic easily digestible for the general public and evoke recognition in the gaming set up. After exploring the data, I decided on three questions that I thought would be interesting: What is the distribution of gaming platforms?, what are the average rankings and game count of genres?, and How are popular are the top 4 game developers’ games?. 
 
-### Final Infographic
+## Data
+I used an openly accessible Kaggle dataset that includes information about video game titles, genres, developers, platforms, and more, aggregated from Backloggd (the video game equivalent of Goodreads or Letterboxd). 
+
+## Approach and Design
+There were ten elements of the infographic that I needed to consider. They are the following:
+
+1. Graphic Form:
+
+When I was testing out different variations of how to visualize my genre data, I realized that the radial bar chart resembles the fan often found in personal computers. So, I decided I wanted my infographic to look like the gaming set up the my brother has. I realized I would then need something to put on the monitor, and when I found a tree map, it seemed like the perfect way to incorporate the color scheme of Atari Breakout (a very famous old-school game). For my last visualization, I decided it would be a poster in the room and it could be anything. My last visualization was a time chart.
+
+2. Text:
+
+My titles and legends are descriptive in order to make it clear what each chart is about. When a legend didn't feel quite right, I added an annotation to help aide understanding.
+
+3. Themes:
+
+As I explained in the graphic form section, the theme of the infographic is a modern video game setup with a monitor, pc (personal computer), and posters. 
+
+4. Colors:
+
+The theme of the whole infographic is blue and purple. I chose those because they give off very futuristic tech vibes. The colors on the tree map are vastly different because they were chosen to match what the game Atari Breakout looks like. I only had three rows, so the colors were red, orange, and yellow. 
+
+5. Typography:
+
+I had a lot of fun finding video game-esque fonts. I chose one that looks like pixels. For the tree map, I thought it would be a cool easter egg for each of the platforms' font to match that brand's font. 
+
+6. General Design:
+
+The original design included more aesthetic additions that would be in a bedroom. For example, there was a gaming chair and a trophy. But as I added the visualizations and takeaways, those were removed so that the infographihc didn't have to be too large. 
+
+7. Contextualizing:
+
+I didn't really contextualize the data because most of the data is generally understood. For example, with the genre chart, even if someone hasn't played all those genres, they are common adjectives, so I think they make sense. 
+
+8. Centering your primary message:
+
+I didn't really have a primary message. All three graphics are equally important, so they're located on the left, with their takeaways to the right of them. 
+
+9. Considering accessibility:
+
+My graphich could definitely be more accessible to color blindness, so if I were to redo, I would change the colors. I think they tend to be the similar colors of varying depths, which could help because the color is either light or dark.
+
+10. Applying DEI:
+
+Because the data came from an aggregated data set from a reviewing website called Backloggd, I don't have any information from the people who submitted their game logs. I think applying a DEI lens is less applicable to my infrographic, but I would be interested to see if there were other thoughts.
+
+## Final Infographic
 ```{r}
 #| eval: true
 #| echo: false
@@ -33,6 +79,8 @@ I found the data on Kaggle. The creator aggregated the data from a site called B
 #| out-width: "100%"
 knitr::include_graphics("infographic.png")
 ```
+
+
 
 
 ## Code 
@@ -66,8 +114,9 @@ developers <- read_csv(here("posts", "video_games","data", "developers.csv"))
 
 ```
 
-### Radial Bar Chart Data Wrangling
+### Radial Bar Chart
 
+#### Data Wrangling
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code"
@@ -90,6 +139,7 @@ genre_avg_scores <- genres_ratings %>%
   filter(genre != "NA") 
 ```
 
+#### Visualize
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code"
@@ -117,9 +167,13 @@ ggplot(genre_avg_scores, aes(x = genre, y = avg_rating, fill = game_count)) +
 ```
 
 ### Time plot
+
+#### Data Wrangling
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code"
+#| results: hide
+
 
 # Join developers
 developer_games <- left_join(developers, games, by = "id") %>% 
@@ -145,6 +199,7 @@ developer_top_games <- developer_games %>%
 
 ```
 
+#### Visualize
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code"
@@ -157,6 +212,7 @@ ggplot(developer_top_games, aes(x = date, y = plays, color = developer))  +
 ```
 ### Treemap Plot
 
+#### Data Wrangling
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code"
