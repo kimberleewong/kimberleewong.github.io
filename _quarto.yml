@@ -7,24 +7,37 @@ website:
   favicon: images/IMG_0267.png
   navbar:
     logo: images/IMG_0267.png
-    left:
+    logo-alt: "The letters 'KW' written in dark blue text inside of a pink chinese styled stamp. In the stamp is a drawing of jasmine going into a swirly cloud."
+    right:
       - href: index.qmd
         text: Home
-      - about.qmd
-      - href: Resources.qmd
-        text: Resources
-      - posts.qmd
-    # - text: CV
-    #.  href: CV/my-cv.pdf (put in root directory)
-  page-footer: 
-   background: light # or `dark`
-   left: Copyright 2024, Kimberlee Wong
-   right: This website is built with Github {{< fa brands github title="the octocat github icon" >}}
+      - href: about.qmd
+        text: About
+      # href: Resources.qmd
+      # text: Resources
+      - href: posts.qmd
+        text: Posts
+      # - text: CV
+      #   href: CV/my-cv.pdf
+      - text: Get in Touch!
+        menu:
+          - icon: linkedin
+            text: LinkedIn
+            href: https://www.linkedin.com/in/kimberlee-wong/
+          - icon: envelope
+            text: Email
+            href: mailto:kjwong02@ucla.edu
+      - icon: github
+        href: https://github.com/kimberleewong/kimberleewong.github.io
+  page-footer:
+    background: light # or `dark`
+    left: "Copyright 2024, Kimberlee Wong"
+    right: "This website is built with GitHub"
 format:
   html:
     theme: styles.scss
-    mainfont: Afacad Flux
+    mainfont: "Afacad Flux"
     toc: false
-
+    
 editor: visual
 
