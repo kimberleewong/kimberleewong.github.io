@@ -1,5 +1,5 @@
 ---
-jupyter: eds220-env
+jupyter: quarto-venv
 title: "Analysis of the 2017 Thomas Fire"
 description: "This project's goal is to visually explore the region affected by the Thomas Fire across Ventura and Santa Barbara counties in 2017."
 author: 
@@ -79,10 +79,16 @@ aqi_18 = pd.read_csv('data/daily_aqi_by_county_2018.zip', compression = 'zip')
 
 # Make a root path
 root = os.path.join('/',
-                  'courses',
-                  'EDS220',
-                  'data',
-                  'hwk4_landsat_data')
+                  'Users',
+                  'kimmywong',
+                  'Downloads',
+                  'MEDS',
+                  'EDS_296',
+                  'kimberleewong.github.io',
+                  'posts',
+                  'thomas_fire_analysis',
+                  'data')
+                  
 
 # Make a filepath
 fp = os.path.join(root,
