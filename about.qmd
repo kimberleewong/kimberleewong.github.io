@@ -4,39 +4,16 @@ title: "About"
 
 ## Education!
 
-<<<<<<< HEAD
-<p class="title">
-
-some text
-
-</p>
 =======
 ### UC Santa Barbara
-I am currently a student at the UC Santa Barbara Bren School of Environmental Science and Management. I am pursuing my Master's of Environmental Data Science. With the fast paced nature of this program, I have learned so much in such a short time span. I've enjoyed furthering my skills in R, Python, Java, and SQL. I'm currently working on a capstone project called Justice40. Our goal is to improve the Climate and Economic Justice Screening Tool (CEJST) that was created when the Justice40 federal initiative was launched. We recently had our faculty reviews to present our project to members of the faculty that are not associated with our project. It went well, and it was extremely valuable to get the feedback from an outside perspective. 
->>>>>>> 511134393508b12c4bb1166333efe23d631e7c4c
+I have recently graduated from the UC Santa Barbara Bren School of Environmental Science and Management. I completed my Master's of Environmental Data Science. With the fast paced nature of the program, I have learned so much in such a short time span. I've enjoyed furthering my skills in R, Python, Java, and SQL. My capstone team, Justice40, succeeded in our goal of improving the Climate and Economic Justice Screening Tool (CEJST) that was created when the Justice40 federal initiative was launched. At the end of our program, we had our public presentations to present our project to members of the faculty, fellow students, friends, and family members. Our geospatial app/tool is now publicly available [here](https://apps.bren.ucsb.edu/justice40/en/#3/33.47/-97.5).
 
 ### UC Los Angeles 
 I was an Environmental Science student in undergrad at UC Los Angeles, and it was during one of my required classes, coding for environmental science, that I found a great appreciation for data science and the value of programs like R. 
 
-<<<<<<< HEAD
-<p class ="blue-text">
-
+## Hobbies!
 When I'm not in class or practicing my code, I strive to use my free time to stretch out my artistic bones. 
 
-</p>
-=======
->>>>>>> 511134393508b12c4bb1166333efe23d631e7c4c
 
-## Hobbies!
-
-<<<<<<< HEAD
-::: center-text
-here is line
-
-mroe line
-:::
-=======
 ### Random Voices
 I wad unbelievably lucky to join Random Voices Acapella my freshman year at UCLA. Because my freshman year was online, due to COVID, I did audition over zoom. That in itself was a weird experience, but I met the most amazing girls who were also passionate about music and singing. I stayed with the group for all four years, and we had just the coolest experiences. Every year we'd go on multiple retreats to bond and sing. This was especially important because each year we'd have new members. Some of my favorite memories are with the group in Big Bear or Berkeley.
-
->>>>>>> 511134393508b12c4bb1166333efe23d631e7c4c
