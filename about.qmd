@@ -4,7 +4,6 @@ title: "About"
 
 ## Education!
 
-=======
 ### UC Santa Barbara
 I have recently graduated from the UC Santa Barbara Bren School of Environmental Science and Management. I completed my Master's of Environmental Data Science. With the fast paced nature of the program, I have learned so much in such a short time span. I've enjoyed furthering my skills in R, Python, Java, and SQL. My capstone team, Justice40, succeeded in our goal of improving the Climate and Economic Justice Screening Tool (CEJST) that was created when the Justice40 federal initiative was launched. At the end of our program, we had our public presentations to present our project to members of the faculty, fellow students, friends, and family members. Our geospatial app/tool is now publicly available [here](https://apps.bren.ucsb.edu/justice40/en/#3/33.47/-97.5).
 
