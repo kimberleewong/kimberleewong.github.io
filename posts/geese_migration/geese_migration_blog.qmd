@@ -36,8 +36,8 @@ Additionally, this study acknowledges some challenges, such as gaps in data acro
 
 Based on previous research that describes how environmental factors can influence migration patterns, I believe that there will be a change in geese migration over time. Below shows a table of my two hypotheses, and I will be attempting to determine whether or not they can be rejected.
 
-| Hypothesis: There is a change in geese migration distance over time.       |
-|----------------------------------------------------------------------------|
+| Hypothesis: There is a change in geese migration distance over time. |
+|------------------------------------------------------------------------|
 | Null hypothesis: There is no change in geese migration distance over time. |
 
 ## Analysis Plan
@@ -317,25 +317,39 @@ To sum up our results, in both linear models (first: year as only predictor, sec
 
 While the dataset from Movebank offers valuable insights into geese migration patterns, several limitations must be acknowledged, as they could affect the robustness and interpretation of the analysis:
 
-1.  Temporal Gaps in the Data The dataset spans 2006 to 2009 and then skips three years before resuming for 2013 and 2014. This temporal gap introduces potential biases, as it excludes data from years that might have exhibited different migration behaviors due to environmental or ecological changes. Consequently, the uneven time distribution reduces the ability to assess continuous trends over time.
+1.  Temporal Gaps in the Data
 
-2.  Uneven Sample Size Across Years The number of geese tracked varies significantly between years, leading to imbalances in the dataset. This uneven distribution may skew the results, as years with fewer data points have less statistical weight, potentially masking real patterns or exaggerating anomalies in years with more extensive data coverage.
+    The dataset spans 2006 to 2009 and then skips three years before resuming for 2013 and 2014. This temporal gap introduces potential biases, as it excludes data from years that might have exhibited different migration behaviors due to environmental or ecological changes. Consequently, the uneven time distribution reduces the ability to assess continuous trends over time.
 
-3.  Lack of Comprehensive Environmental Variables While the inclusion of precipitation data was a step toward understanding environmental influences, the variable proved challenging to integrate effectively. The NOAA station data was limited in its spatial relevance to the geese's migration routes and lacked temporal precision. Other critical environmental factors, such as temperature, wind patterns, or habitat changes along the migration path, were not included, which limits the ability to fully understand the drivers behind migration distances.
+2.  Uneven Sample Size Across Years
 
-4.  Potential Impact of External Factors The original study mentioned that some geese were lost during hunting seasons. This human-induced mortality could affect migration data by reducing sample sizes or influencing the observed migration distances of tagged individuals.
+    The number of geese tracked varies significantly between years, leading to imbalances in the dataset. This uneven distribution may skew the results, as years with fewer data points have less statistical weight, potentially masking real patterns or exaggerating anomalies in years with more extensive data coverage.
 
-5.  Simplification of Migration Distance Calculation The migration distance was calculated as the maximum distance traveled by each goose during the year, assuming that this represented the total migration length. This approach does not account for potential deviations, stopovers, or detours in the migration path, which might lead to underestimation or overestimation of actual migration effort.
+3.  Lack of Comprehensive Environmental Variables
 
-6.  Bias Toward Surviving Individuals The data inherently focuses on geese that completed their migrations and excludes individuals that may have died en route or failed to migrate. This survivorship bias could paint an incomplete picture of the migration patterns and the challenges faced by the population.
+    While the inclusion of precipitation data was a step toward understanding environmental influences, the variable proved challenging to integrate effectively. The NOAA station data was limited in its spatial relevance to the geese's migration routes and lacked temporal precision. Other critical environmental factors, such as temperature, wind patterns, or habitat changes along the migration path, were not included, which limits the ability to fully understand the drivers behind migration distances.
 
-7.  Limited Geographic and Population Scope The dataset tracks a specific subset of the goose population in a defined geographic area. Findings from this subset may not be generalizable to other populations or regions where geese face different environmental pressures or migratory challenges.
+4.  Potential Impact of External Factors
+
+    The original study mentioned that some geese were lost during hunting seasons. This human-induced mortality could affect migration data by reducing sample sizes or influencing the observed migration distances of tagged individuals.
+
+5.  Simplification of Migration Distance Calculation
+
+    The migration distance was calculated as the maximum distance traveled by each goose during the year, assuming that this represented the total migration length. This approach does not account for potential deviations, stopovers, or detours in the migration path, which might lead to underestimation or overestimation of actual migration effort.
+
+6.  Bias Toward Surviving Individuals
+
+    The data inherently focuses on geese that completed their migrations and excludes individuals that may have died en route or failed to migrate. This survivorship bias could paint an incomplete picture of the migration patterns and the challenges faced by the population.
+
+7.  Limited Geographic and Population Scope
+
+    The dataset tracks a specific subset of the goose population in a defined geographic area. Findings from this subset may not be generalizable to other populations or regions where geese face different environmental pressures or migratory challenges.
 
 Acknowledging these limitations is essential for interpreting the results and framing conclusions. Future studies could aim to fill data gaps, integrate additional environmental variables, and explore alternative methods for calculating migration distances to gain a more comprehensive understanding of the factors influencing geese migration.
 
 ## References
 
-| Data:                | Citation:                                                                                                                                                                                                                                                                                                                                         |
-|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Data: | Citation: |
+|------------|------------------------------------------------------------|
 | Geese Migration Data | Kölzsch, A., Müskens, G. J. D. M., Kruckenberg, H., Glazov, P., Weinzierl, R., Nolet, B. A., & Wikelski, M. (2016). Towards a new understanding of migration timing: slower spring than autumn migration in geese reflects different decision rules for stopover use and departure. Oikos, 125(10), 1496--1507. https://doi.org/10.1111/oik.03121 |
-| Precipitation Data   | Climate Data Online (CDO), National Climatic Data Center (NCDC). (n.d.). Www.ncei.noaa.gov. https://www.ncei.noaa.gov/cdo-web/search                                                                                                                                                                                                              |
+| Precipitation Data | Climate Data Online (CDO), National Climatic Data Center (NCDC). (n.d.). Www.ncei.noaa.gov. https://www.ncei.noaa.gov/cdo-web/search |

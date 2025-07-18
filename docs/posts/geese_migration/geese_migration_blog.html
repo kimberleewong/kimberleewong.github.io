@@ -329,10 +329,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.3     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.4     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
 ✔ purrr     1.0.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
@@ -344,26 +344,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
-<pre><code>here() starts at /Users/kjwong/MEDS/kimberleewong.github.io</code></pre>
+<pre><code>here() starts at /Users/kimmywong/Downloads/MEDS/EDS_296/kimberleewong.github.io</code></pre>
 </div>
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'tmap'
-
-The following object is masked from 'package:datasets':
-
-    rivers</code></pre>
+<pre><code>Breaking News: tmap 3.x is retiring. Please test v4, e.g. with
+remotes::install_github('r-tmap/tmap')</code></pre>
 </div>
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
-<pre><code>Linking to GEOS 3.10.2, GDAL 3.4.1, PROJ 8.2.1; sf_use_s2() is TRUE</code></pre>
+<pre><code>Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE</code></pre>
 </div>
 <details class="code-fold">
 <summary>Show code</summary>
@@ -710,13 +706,20 @@ F-statistic: 0.7992 on 5 and 71 DF,  p-value: 0.5539</code></pre>
 <h3 class="anchored" data-anchor-id="limitations-of-the-data">Limitations of the Data</h3>
 <p>While the dataset from Movebank offers valuable insights into geese migration patterns, several limitations must be acknowledged, as they could affect the robustness and interpretation of the analysis:</p>
 <ol type="1">
-<li><p>Temporal Gaps in the Data The dataset spans 2006 to 2009 and then skips three years before resuming for 2013 and 2014. This temporal gap introduces potential biases, as it excludes data from years that might have exhibited different migration behaviors due to environmental or ecological changes. Consequently, the uneven time distribution reduces the ability to assess continuous trends over time.</p></li>
-<li><p>Uneven Sample Size Across Years The number of geese tracked varies significantly between years, leading to imbalances in the dataset. This uneven distribution may skew the results, as years with fewer data points have less statistical weight, potentially masking real patterns or exaggerating anomalies in years with more extensive data coverage.</p></li>
-<li><p>Lack of Comprehensive Environmental Variables While the inclusion of precipitation data was a step toward understanding environmental influences, the variable proved challenging to integrate effectively. The NOAA station data was limited in its spatial relevance to the geese’s migration routes and lacked temporal precision. Other critical environmental factors, such as temperature, wind patterns, or habitat changes along the migration path, were not included, which limits the ability to fully understand the drivers behind migration distances.</p></li>
-<li><p>Potential Impact of External Factors The original study mentioned that some geese were lost during hunting seasons. This human-induced mortality could affect migration data by reducing sample sizes or influencing the observed migration distances of tagged individuals.</p></li>
-<li><p>Simplification of Migration Distance Calculation The migration distance was calculated as the maximum distance traveled by each goose during the year, assuming that this represented the total migration length. This approach does not account for potential deviations, stopovers, or detours in the migration path, which might lead to underestimation or overestimation of actual migration effort.</p></li>
-<li><p>Bias Toward Surviving Individuals The data inherently focuses on geese that completed their migrations and excludes individuals that may have died en route or failed to migrate. This survivorship bias could paint an incomplete picture of the migration patterns and the challenges faced by the population.</p></li>
-<li><p>Limited Geographic and Population Scope The dataset tracks a specific subset of the goose population in a defined geographic area. Findings from this subset may not be generalizable to other populations or regions where geese face different environmental pressures or migratory challenges.</p></li>
+<li><p>Temporal Gaps in the Data</p>
+<p>The dataset spans 2006 to 2009 and then skips three years before resuming for 2013 and 2014. This temporal gap introduces potential biases, as it excludes data from years that might have exhibited different migration behaviors due to environmental or ecological changes. Consequently, the uneven time distribution reduces the ability to assess continuous trends over time.</p></li>
+<li><p>Uneven Sample Size Across Years</p>
+<p>The number of geese tracked varies significantly between years, leading to imbalances in the dataset. This uneven distribution may skew the results, as years with fewer data points have less statistical weight, potentially masking real patterns or exaggerating anomalies in years with more extensive data coverage.</p></li>
+<li><p>Lack of Comprehensive Environmental Variables</p>
+<p>While the inclusion of precipitation data was a step toward understanding environmental influences, the variable proved challenging to integrate effectively. The NOAA station data was limited in its spatial relevance to the geese’s migration routes and lacked temporal precision. Other critical environmental factors, such as temperature, wind patterns, or habitat changes along the migration path, were not included, which limits the ability to fully understand the drivers behind migration distances.</p></li>
+<li><p>Potential Impact of External Factors</p>
+<p>The original study mentioned that some geese were lost during hunting seasons. This human-induced mortality could affect migration data by reducing sample sizes or influencing the observed migration distances of tagged individuals.</p></li>
+<li><p>Simplification of Migration Distance Calculation</p>
+<p>The migration distance was calculated as the maximum distance traveled by each goose during the year, assuming that this represented the total migration length. This approach does not account for potential deviations, stopovers, or detours in the migration path, which might lead to underestimation or overestimation of actual migration effort.</p></li>
+<li><p>Bias Toward Surviving Individuals</p>
+<p>The data inherently focuses on geese that completed their migrations and excludes individuals that may have died en route or failed to migrate. This survivorship bias could paint an incomplete picture of the migration patterns and the challenges faced by the population.</p></li>
+<li><p>Limited Geographic and Population Scope</p>
+<p>The dataset tracks a specific subset of the goose population in a defined geographic area. Findings from this subset may not be generalizable to other populations or regions where geese face different environmental pressures or migratory challenges.</p></li>
 </ol>
 <p>Acknowledging these limitations is essential for interpreting the results and framing conclusions. Future studies could aim to fill data gaps, integrate additional environmental variables, and explore alternative methods for calculating migration distances to gain a more comprehensive understanding of the factors influencing geese migration.</p>
 </section>
@@ -725,8 +728,8 @@ F-statistic: 0.7992 on 5 and 71 DF,  p-value: 0.5539</code></pre>
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 6%">
-<col style="width: 93%">
+<col style="width: 16%">
+<col style="width: 83%">
 </colgroup>
 <thead>
 <tr class="header">
